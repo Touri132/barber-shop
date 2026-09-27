@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Mohammed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <button class="brand" id="brand-btn" aria-label="Home">
+      <span class="brand-icon">✂️</span>
+      <span class="brand-text" id="brand-text"></span>
+    </button>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <button class="nav-link" data-page="home" id="nav-home"></button>
+        <button class="nav-link" data-page="book" id="nav-book"></button>
+        <button class="nav-link" data-page="team" id="nav-team"></button>
+        <button class="nav-link" data-page="manager" id="nav-manager">🔒 <span id="nav-manager-label"></span></button>
+      </nav>
+      <button class="icon-toggle" id="lang-toggle">🌐 <span id="lang-toggle-label">EN</span></button>
+      <button class="icon-toggle icon-toggle-round" id="theme-toggle">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="page-home" class="page">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow" id="home-eyebrow"></p>
+          <h1 class="headline"><span id="home-headline-1"></span><br><span id="home-headline-2"></span></h1>
+          <p class="lead" id="home-lead"></p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="home-cta-book"></button>
+            <button class="btn-link" id="home-cta-meet"></button>
+          </div>
+        </div>
+        <div class="hero-avatar" id="home-avatar-wrap"></div>
+      </div>
+    </section>
+
+    <div class="stripe"></div>
+
+    <section class="stats">
+      <div class="stats-inner">
+        <div class="stat"><p class="stat-num" id="stat-years-num"></p><p class="stat-label" id="stat-years-label"></p></div>
+        <div class="stat"><p class="stat-num" id="stat-barbers-num"></p><p class="stat-label" id="stat-barbers-label"></p></div>
+        <div class="stat"><p class="stat-num" id="stat-appts-num"></p><p class="stat-label" id="stat-appts-label"></p></div>
+      </div>
+    </section>
+
+    <section class="today">
+      <div class="today-inner">
+        <h2 id="today-title"></h2>
+        <div id="today-card"></div>
+      </div>
+    </section>
+  </section>
+
+  <!-- BOOK -->
+  <section id="page-book" class="page hidden">
+    <div class="narrow">
+      <h1 id="book-title"></h1>
+      <p class="sub" id="book-subtitle"></p>
+
+      <form id="booking-form" class="card form">
+        <div class="field">
+          <label id="label-barber"></label>
+          <div class="barber-grid" id="barber-picker"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label id="label-name"></label><input required id="input-name" type="text"></div>
+          <div class="field"><label id="label-phone"></label><input required id="input-phone" type="tel"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label id="label-date"></label><input required id="input-date" type="date"></div>
+          <div class="field"><label id="label-time"></label><select required id="input-time"></select></div>
+        </div>
+        <div class="field"><label id="label-notes"></label><textarea id="input-notes" rows="2"></textarea></div>
+        <p class="error hidden" id="book-error"></p>
+        <button type="submit" class="btn btn-primary btn-block" id="book-submit"></button>
+      </form>
+
+      <div id="book-success" class="card hidden">
+        <div class="round-icon">✅</div>
+        <p class="card-title center" id="success-title"></p>
+        <p class="sub center" id="success-sub"></p>
+        <div id="reminder-buttons"></div>
+        <button class="btn-link center-block" id="book-again"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="page-team" class="page hidden">
+    <div class="wide">
+      <h1 id="team-title"></h1>
+      <p class="sub" id="team-subtitle"></p>
+      <div class="team-grid" id="team-grid"></div>
+    </div>
+  </section>
+
+  <!-- MANAGER -->
+  <section id="page-manager" class="page hidden">
+    <div id="manager-login" class="center-box">
+      <form id="login-form" class="card login-card">
+        <div class="round-icon">🔒</div>
+        <p class="card-title center" id="login-title"></p>
+        <p class="sub center" id="login-sub"></p>
+        <div class="password-wrap">
+          <input type="password" required id="input-password">
+          <button type="button" id="toggle-password" class="eye-btn">👁️</button>
+        </div>
+        <p class="error hidden" id="login-error"></p>
+        <button type="submit" class="btn btn-primary btn-block" id="login-submit"></button>
+      </form>
+    </div>
+
+    <div id="manager-dashboard" class="wide hidden">
+      <div class="dash-header">
+        <div><h1 id="dash-title"></h1><p class="sub" id="dash-sub"></p></div>
+        <button class="btn-link" id="logout-btn"></button>
+      </div>
+      <div class="dash-grid">
+        <div>
+          <div class="dash-row">
+            <h3 id="appts-title"></h3>
+            <select id="appt-filter"></select>
+          </div>
+          <div id="appt-list"></div>
+        </div>
+        <div class="card" id="employee-editor"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="brand"><span class="brand-icon">✂️</span><span id="footer-brand"></span></div>
+    <p class="footer-note" id="footer-note"></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
